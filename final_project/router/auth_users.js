@@ -62,7 +62,7 @@ regd_users.put("/auth/review/:isbn", (req, res) => {
   const reviewData = req.body;
 
   // Check if the book with the provided ISBN exists
-  if (!books.hasOwnProperty(isbn)) {
+  if (!books[isbn]) {
     return res
       .status(404)
       .json({ message: "Book not found for ISBN: " + isbn });
